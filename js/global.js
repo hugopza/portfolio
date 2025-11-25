@@ -1,0 +1,121 @@
+function initHeader() {
+  const navWrapper = document.querySelector(".nav-wrapper");
+  const links = document.querySelectorAll("nav a");
+  const indicator = document.querySelector(".nav-indicator");
+  const themeToggle = document.getElementById("theme-toggle");
+  const sunIcon = document.querySelector(".sun-icon");
+  const moonIcon = document.querySelector(".moon-icon");
+
+  if (links.length && indicator) {
+    const currentPath = window.location.pathname;
+    const pageName = currentPath.split("/").pop() || "index.html";
+
+    links.forEach((link) => {
+      const linkHref = link.getAttribute("href");
+      if (
+        linkHref === pageName ||
+        (pageName === "index.html" && linkHref === "index.html") ||
+        (pageName === "" && linkHref === "index.html")
+      ) {
+        link.classList.add("active");
+      } else {
+        link.classList.remove("active");
+      }
+    });
+
+    const moveIndicator = (link) => {
+      const linkRect = link.getBoundingClientRect();
+      const navRect = link.parentNode.getBoundingClientRect();
+
+      indicator.style.left = `${linkRect.left - navRect.left}px`;
+      indicator.style.width = `${linkRect.width}px`;
+      indicator.style.height = `${linkRect.height}px`;
+      indicator.style.opacity = "1";
+    };
+
+    window.moveNavIndicator = moveIndicator;
+
+    const updateIndicator = () => {
+      const activeLink = document.querySelector("nav a.active");
+      if (activeLink) moveIndicator(activeLink);
+    };
+
+    links.forEach((link) => {
+      link.addEventListener("click", (e) => {
+        if (link.getAttribute("href").startsWith("#")) {
+          e.preventDefault();
+        }
+        links.forEach((l) => l.classList.remove("active"));
+        link.classList.add("active");
+        moveIndicator(link);
+      });
+    });
+
+    const initialActive = document.querySelector("nav a.active");
+    if (initialActive) {
+      setTimeout(() => moveIndicator(initialActive), 50);
+      document.fonts.ready.then(() => moveIndicator(initialActive));
+    } else {
+      indicator.style.opacity = "0";
+    }
+
+    window.addEventListener("resize", updateIndicator);
+  }
+
+  let lastScrollY = 0;
+
+  window.addEventListener("scroll", () => {
+    if (!navWrapper) return;
+
+    const currentY = window.scrollY;
+    const wasScrolled = navWrapper.classList.contains("scrolled");
+    const isScrolled = currentY > 50;
+
+    if (isScrolled) navWrapper.classList.add("scrolled");
+    else navWrapper.classList.remove("scrolled");
+
+    if (wasScrolled !== isScrolled) {
+      setTimeout(() => {
+        const activeLink = document.querySelector("nav a.active");
+        if (activeLink && indicator) {
+          const linkRect = activeLink.getBoundingClientRect();
+          const navRect = activeLink.parentNode.getBoundingClientRect();
+          indicator.style.left = `${linkRect.left - navRect.left}px`;
+          indicator.style.width = `${linkRect.width}px`;
+          indicator.style.height = `${linkRect.height}px`;
+        }
+      }, 100);
+    }
+
+    lastScrollY = currentY;
+  });
+
+  const enableDarkMode = () => {
+    document.body.classList.add("dark-mode");
+    if (sunIcon) sunIcon.style.display = "none";
+    if (moonIcon) moonIcon.style.display = "block";
+    localStorage.setItem("theme", "dark");
+  };
+
+  const disableDarkMode = () => {
+    document.body.classList.remove("dark-mode");
+    if (sunIcon) sunIcon.style.display = "block";
+    if (moonIcon) moonIcon.style.display = "none";
+    localStorage.setItem("theme", "light");
+  };
+
+  if (document.body.classList.contains("dark-mode")) {
+    if (sunIcon) sunIcon.style.display = "none";
+    if (moonIcon) moonIcon.style.display = "block";
+  } else {
+    if (sunIcon) sunIcon.style.display = "block";
+    if (moonIcon) moonIcon.style.display = "none";
+  }
+
+  if (themeToggle) {
+    themeToggle.addEventListener("click", () => {
+      if (document.body.classList.contains("dark-mode")) disableDarkMode();
+      else enableDarkMode();
+    });
+  }
+}
