@@ -254,6 +254,43 @@ body.dark-mode #opportunities-button:hover {
   fill: var(--text-color);
 }
 
+.back-to-top {
+  right: 5%;
+  position: absolute;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.back-to-top:hover {
+  transform: scale(1.1);
+}
+
+.arrow-icon {
+  display: block;
+  width: 40px;
+  height: 40px;
+}
+
+.arrow-icon circle,
+.arrow-icon path {
+  stroke: var(--text-color);
+  stroke-width: 2px;
+  transition: stroke 0.3s ease;
+  vector-effect: non-scaling-stroke;
+}
+
+.arrow-circle {
+  stroke-dasharray: 4 3;
+  transition: stroke-dasharray 0.5s ease;
+}
+
+.back-to-top:hover .arrow-circle {
+  stroke-dasharray: 0;
+  transition: stroke-dasharray 0.5s ease;
+}
+
 @media (max-width: 768px) {
   .hero {
     padding-top: 140px;
