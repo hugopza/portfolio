@@ -27,6 +27,9 @@ body {
   opacity: 0;
   transition: background-color 0.3s ease, color 0.3s ease,
     opacity 0.3s ease-in-out;
+  display: grid;
+  min-height: 100dvh;
+  grid-template-rows: auto 1fr auto;
 }
 
 body.loaded {
