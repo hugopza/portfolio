@@ -3,8 +3,8 @@
 
 :root {
   --bg-color: #f5cb24;
-  --text-color: #2f3a35;
-  --heading-color: #0f4c3a;
+  --text-color: #23372f;
+  --heading-color: #0f3c2e;
   --nav-bg-scrolled: rgba(255, 255, 255, 0.15);
   --nav-shadow-scrolled: rgba(0, 0, 0, 0.12);
   --indicator-bg: rgba(255, 255, 255, 0.45);
@@ -45,16 +45,20 @@ body::before {
   width: 100%;
   height: 100%;
   z-index: -1;
-  background-image: radial-gradient(
-      at 0% 0%,
-      hsla(60, 80%, 90%, 1) 0px,
-      transparent 50%
+  background: radial-gradient(
+      circle at 20% 20%,
+      rgba(255, 255, 200, 0.7) 0%,
+      rgba(255, 255, 220, 0.4) 25%,
+      rgba(255, 255, 240, 0.2) 50%,
+      rgba(255, 255, 255, 0) 80%
     ),
-    radial-gradient(at 100% 0%, rgb(245, 245, 145) 0px, transparent 60%),
-    radial-gradient(at 100% 100%, rgb(246, 206, 246) 0px, transparent 60%),
-    radial-gradient(at 0% 100%, rgb(254, 205, 221) 0px, transparent 60%),
-    radial-gradient(at 50% 50%, #ffffff 0px, transparent 50%);
-  transition: opacity 0.3s ease;
+    radial-gradient(
+      circle at 80% 80%,
+      rgba(255, 230, 200, 0.5) 0%,
+      rgba(255, 240, 230, 0.2) 40%,
+      transparent 80%
+    );
+  transition: opacity 0.4s ease;
 }
 
 body.dark-mode::before {
@@ -69,12 +73,39 @@ body.dark-mode::before {
   transform: translate(-50%, -50%);
   background: radial-gradient(
     circle,
-    rgba(255, 255, 255, 0.22) 0%,
+    rgba(94, 67, 249, 0.22) 0%,
     rgba(255, 255, 255, 0.1) 35%,
     rgba(255, 255, 255, 0) 70%
   );
   transition: opacity 0.25s ease-out;
   pointer-events: none;
+}
+
+.star {
+  position: fixed;
+  background: white;
+  border-radius: 50%;
+  z-index: -2;
+  opacity: 0;
+  pointer-events: none;
+  box-shadow: 0 0 2px rgba(255, 255, 255, 0.8);
+}
+
+body.dark-mode .star {
+  animation: twinkle var(--star-duration, 3s) infinite ease-in-out;
+  opacity: var(--star-opacity, 0.8);
+}
+
+@keyframes twinkle {
+  0%,
+  100% {
+    opacity: var(--star-opacity, 0.8);
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(0.8);
+  }
 }
 
 .hero {
