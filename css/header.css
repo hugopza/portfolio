@@ -87,7 +87,7 @@ body.dark-mode #theme-toggle:hover {
   text-decoration: none;
   position: absolute;
   left: 5%;
-  background: #fafad4;
+  background: #d6e9fa;
   padding: 10px 22px;
   border-radius: 777px;
   font-size: 15px;
@@ -114,20 +114,49 @@ body.dark-mode #opportunities-button:hover {
 }
 
 @media (max-width: 768px) {
+  .header-container {
+    padding: 0 20px;
+    justify-content: space-between;
+  }
+
+  .nav-wrapper {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
   .nav a {
     padding: 8px 16px;
     font-size: 14px;
   }
 
+  #opportunities-button {
+    position: static;
+    padding: 8px 16px;
+    font-size: 13px;
+  }
+
   #theme-toggle {
-    right: 20px;
+    position: static;
+    right: auto;
   }
 }
 
 @media (max-width: 480px) {
+  .header-container {
+    top: 15px;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+  }
+
   .nav-wrapper {
-    width: 90%;
-    max-width: 350px;
+    position: relative;
+    left: auto;
+    transform: none;
+    width: 100%;
+    max-width: 320px;
+    order: 3;
   }
 
   .nav {
@@ -136,27 +165,20 @@ body.dark-mode #opportunities-button:hover {
   }
 
   .nav a {
-    padding: 8px 12px;
+    padding: 8px 10px;
     flex: 1;
     text-align: center;
-  }
-
-  #theme-toggle {
-    top: 24px;
-    right: 15px;
-    padding: 6px;
-  }
-
-  .header-container {
-    flex-direction: column;
-    gap: 10px;
+    font-size: 13px;
   }
 
   #opportunities-button {
-    position: absolute;
-    top: 24px;
-    left: 15px;
-    padding: 6px 12px;
+    order: 1;
     font-size: 12px;
+    padding: 8px 14px;
+  }
+
+  #theme-toggle {
+    order: 2;
+    padding: 6px;
   }
 }

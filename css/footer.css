@@ -98,7 +98,7 @@
 }
 
 #download-icon {
-  background: #fdd3dc;
+  background: #cae4fa;
   border-radius: 999px;
   padding: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.04);
@@ -145,4 +145,47 @@
 
 .dark-mode #download-icon {
   background: rgba(255, 255, 255, 0.1);
+}
+@media (max-width: 768px) {
+  .footer-content {
+    flex-wrap: wrap;
+    gap: 15px;
+    padding: 0 20px;
+  }
+
+  .cv-button {
+    position: static;
+    order: 1;
+  }
+
+  .back-to-top {
+    position: static;
+    order: 3;
+    margin-left: auto;
+  }
+
+  /* Center social icons */
+  .footer-content > a:not(.cv-button):not(.back-to-top) {
+    order: 2;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    justify-content: space-between;
+  }
+
+  .cv-button {
+    width: 100%;
+    justify-content: center;
+    margin-bottom: 10px;
+  }
+
+  .back-to-top {
+    margin-left: 0;
+  }
+
+  .footer-content > a:not(.cv-button):not(.back-to-top) {
+    margin: 0 5px;
+  }
 }
