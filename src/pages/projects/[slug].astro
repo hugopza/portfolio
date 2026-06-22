@@ -1,0 +1,14 @@
+---
+import { getCollection, render } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+import DecisionList from "../../components/project/DecisionList.astro";
+import OutcomePanel from "../../components/project/OutcomePanel.astro";
+import styles from "./project-detail.module.css";
+export async function getStaticPaths(){const projects=await getCollection("projects");return projects.map(project=>({params:{slug:project.slug},props:{project}}));}
+const { project } = Astro.props;
+const { Content } = await render(project);
+const { data } = project;
+---
+<BaseLayout title={`${data.title} · Hugo Perez`} description={data.summary}>
+  <div class="page-shell"><header class={styles.hero}><a href="/projects/">← deployments</a><span class="eyebrow">{data.type} / {data.status}</span><h1>{data.title}</h1><p>{data.summary}</p><dl><div><dt>Role</dt><dd>{data.role}</dd></div>{data.duration&&<div><dt>Duration</dt><dd>{data.duration}</dd></div>}{data.team&&<div><dt>Team</dt><dd>{data.team}</dd></div>}</dl></header><div class={styles.contentGrid}><main class={styles.mainColumn}><article class={styles.block}><span class={styles.label}>01 / Context</span><h2>{data.problem}</h2><p>{data.context}</p></article><article class={styles.block}><span class={styles.label}>02 / Constraints</span><ul>{data.constraints.map(item=><li>{item}</li>)}</ul></article><article class={styles.block}><span class={styles.label}>03 / Key decisions</span><DecisionList decisions={data.decisions}/></article><article class={styles.block}><span class={styles.label}>04 / Implementation notes</span><div class={styles.richText}><Content/></div></article></main><OutcomePanel outcomes={data.outcomes} stack={data.stack}/></div></div>
+</BaseLayout>

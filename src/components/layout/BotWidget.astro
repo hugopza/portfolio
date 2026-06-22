@@ -1,0 +1,32 @@
+---
+import styles from "./BotWidget.module.css";
+---
+<div class={styles.backdrop} data-bot-backdrop hidden></div>
+<section class={styles.widget} data-bot-widget role="dialog" aria-modal="true" aria-labelledby="bot-title" aria-hidden="true">
+  <header class={styles.header}>
+    <div><span class={styles.dot}></span><strong id="bot-title">hugo.bot</strong><small>local knowledge base</small></div>
+    <button type="button" data-bot-close aria-label="Close assistant">Close [esc]</button>
+  </header>
+  <div class={styles.log} data-bot-messages aria-live="polite"></div>
+  <div class={styles.options} data-bot-options></div>
+</section>
+<script>
+  const answers = [
+    { label: "What do you build?", lines: ["Product-minded software with a focus on mobile, frontend systems and reliable architecture.", "Current work includes route generation, native Android alarm delivery and real-world commerce."] },
+    { label: "Show your stack", lines: ["TypeScript, React Native, Astro, Python, Supabase and native Android when the product requires it.", "The stack follows the constraints; it is not the starting point."] },
+    { label: "Are you available?", lines: ["Yes. I am open to selected engineering roles and product collaborations.", "Use the contact section or email hugoperezaraus@gmail.com."] },
+  ];
+  const widget = document.querySelector<HTMLElement>("[data-bot-widget]");
+  const backdrop = document.querySelector<HTMLElement>("[data-bot-backdrop]");
+  const log = document.querySelector<HTMLElement>("[data-bot-messages]");
+  const options = document.querySelector<HTMLElement>("[data-bot-options]");
+  let previousFocus: HTMLElement | null = null;
+  const add = (text: string, user = false) => { if (!log) return; const line = document.createElement("p"); line.className = user ? "is-user" : "is-bot"; line.textContent = `${user ? ">" : "$"} ${text}`; log.append(line); log.scrollTop = log.scrollHeight; };
+  const render = () => { if (!log || !options) return; log.innerHTML = ""; options.innerHTML = ""; add("Connection established. What would you like to know?"); answers.forEach((answer) => { const button = document.createElement("button"); button.type = "button"; button.textContent = answer.label; button.addEventListener("click", () => { add(answer.label, true); answer.lines.forEach((line) => add(line)); }); options.append(button); }); };
+  const open = () => { if (!widget || !backdrop) return; previousFocus = document.activeElement as HTMLElement; backdrop.hidden = false; widget.classList.add("is-open"); widget.setAttribute("aria-hidden", "false"); document.body.style.overflow = "hidden"; render(); widget.querySelector<HTMLElement>("[data-bot-close]")?.focus(); };
+  const close = () => { if (!widget || !backdrop) return; widget.classList.remove("is-open"); widget.setAttribute("aria-hidden", "true"); backdrop.hidden = true; document.body.style.overflow = ""; previousFocus?.focus(); };
+  document.querySelectorAll("[data-bot-open]").forEach((button) => button.addEventListener("click", open));
+  document.querySelector("[data-bot-close]")?.addEventListener("click", close);
+  backdrop?.addEventListener("click", close);
+  document.addEventListener("keydown", (event) => { if (event.key === "Escape" && widget?.classList.contains("is-open")) close(); if (event.key === "Tab" && widget?.classList.contains("is-open")) { const focusable = [...widget.querySelectorAll<HTMLElement>("button")]; const first = focusable[0]; const last = focusable.at(-1); if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last?.focus(); } else if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first?.focus(); } } });
+</script>

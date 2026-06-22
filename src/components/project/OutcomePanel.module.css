@@ -1,0 +1,53 @@
+.panel {
+  display: grid;
+  gap: var(--space-5);
+  padding-top: var(--space-2);
+}
+
+.panel span {
+  display: block;
+  color: var(--text-muted);
+  font-size: var(--text-meta);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-3);
+}
+
+.panel > div {
+  padding-bottom: var(--space-5);
+  border-bottom: 1px solid var(--bg-border);
+}
+
+.panel > div:last-child {
+  padding-bottom: 0;
+  border-bottom: 0;
+}
+
+.panel ul {
+  margin: 0;
+}
+
+.chips {
+  display: flex;
+  gap: var(--space-2);
+  flex-wrap: wrap;
+}
+
+.chips span {
+  margin: 0;
+  color: var(--text-secondary);
+  text-transform: none;
+  letter-spacing: normal;
+  font-size: var(--text-small);
+}
+
+.chips span::after {
+  content: "·";
+  margin-left: var(--space-2);
+  color: var(--text-muted);
+}
+
+.chips span:last-child::after {
+  content: "";
+  margin: 0;
+}

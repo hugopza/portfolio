@@ -1,0 +1,26 @@
+---
+import styles from "./OutcomePanel.module.css";
+
+interface Props {
+  outcomes: string[];
+  stack: string[];
+}
+
+const { outcomes, stack } = Astro.props;
+---
+
+<aside class={styles.panel}>
+  <div>
+    <span>Outcome</span>
+    <ul>
+      {outcomes.map((outcome) => <li>{outcome}</li>)}
+    </ul>
+  </div>
+
+  <div>
+    <span>Stack</span>
+    <div class={styles.chips}>
+      {stack.map((item) => <span>{item}</span>)}
+    </div>
+  </div>
+</aside>

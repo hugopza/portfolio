@@ -1,0 +1,9 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../layouts/BaseLayout.astro";
+import WorkspaceExperience from "../components/home/WorkspaceExperience.astro";
+const projects = (await getCollection("projects")).sort((a, b) => a.data.order - b.data.order).filter((project) => project.data.featured);
+---
+<BaseLayout title="Hugo Perez · Software Engineer" description="Software engineer building thoughtful mobile products, frontend systems and reliable architecture.">
+  <WorkspaceExperience projects={projects} />
+</BaseLayout>

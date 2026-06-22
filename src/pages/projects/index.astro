@@ -1,0 +1,11 @@
+---
+import { getCollection } from "astro:content";
+import BaseLayout from "../../layouts/BaseLayout.astro";
+const projects = (await getCollection("projects")).sort((a,b)=>a.data.order-b.data.order);
+---
+<BaseLayout title="Projects · Hugo Perez" description="Engineering case studies organized around constraints, decisions and outcomes.">
+  <div class="page-shell"><header class="page-hero"><span class="eyebrow">Deployments / selected work</span><h1>Proof lives in<br/>the decisions.</h1><p>Projects are documented as systems: their context, constraints, tradeoffs and the outcomes produced.</p></header><div class="project-list">{projects.map((project,index)=><a href={`/projects/${project.slug}/`}><span>0{index+1}</span><div><p>{project.data.type} / {project.data.status}</p><h2>{project.data.title}</h2><small>{project.data.summary}</small></div><ul>{project.data.stack.slice(0,4).map(item=><li>{item}</li>)}</ul><i>Open case study ↗</i></a>)}</div></div>
+</BaseLayout>
+<style>
+.project-list{border-top:1px solid var(--bg-border)}.project-list>a{display:grid;grid-template-columns:3rem minmax(0,1.4fr) minmax(200px,.7fr) auto;gap:1.5rem;align-items:center;padding:2rem 0;border-bottom:1px solid var(--bg-border);transition:color .2s,background .2s}.project-list>a:hover{color:var(--accent-primary);background:linear-gradient(90deg,transparent,var(--accent-soft),transparent)}.project-list>a>span,.project-list p,.project-list i{font:.65rem var(--font-mono)}.project-list>a>span,.project-list p{color:var(--text-muted)}.project-list h2{margin:.35rem 0;font-size:clamp(1.7rem,3vw,3rem)}.project-list small{display:block;max-width:640px;color:var(--text-secondary);font-size:.85rem;line-height:1.6}.project-list ul{display:flex;flex-wrap:wrap;gap:.4rem;margin:0;padding:0;list-style:none}.project-list li{padding:.35rem .55rem;border:1px solid var(--bg-border);border-radius:999px;font:.58rem var(--font-mono)}.project-list i{font-style:normal;white-space:nowrap}@media(max-width:900px){.project-list>a{grid-template-columns:2rem 1fr}.project-list ul,.project-list i{grid-column:2}}
+</style>
