@@ -1,22 +1,45 @@
 # Hugo Perez Portfolio
 
-Static Astro portfolio built around a scroll-driven terminal workspace. Project content lives in Astro content collections, while motion is handled by GSAP ScrollTrigger and Lenis.
+Personal portfolio based on David Heckhoff's 2025 portfolio: project case studies, 3D scenes, shader effects, bilingual copy, sound and scroll-driven transitions.
 
-## Commands
+Built with **Vue 3**, **TypeScript**, and **Vite**. Motion via **GSAP** and **Lenis**, 3D via **three.js**, audio via **Howler**. GLSL is compiled through **vite-plugin-glsl**.
 
-```bash
-npm install
-npm run dev
-npm run build
-npm run preview
-```
+## Scripts
 
-## Structure
+| Command        | Description                          |
+| -------------- | ------------------------------------ |
+| `npm run dev`   | Dev server on port **3000** (`strictPort`) |
+| `npm run build` | `vue-tsc` then production bundle to `dist/` |
+| `npm run preview` | Serve the production build locally |
+| `npm run typecheck` | Typecheck only (`vue-tsc -b`) |
 
-- `src/components/home/WorkspaceExperience.astro`: home narrative and motion controller.
-- `src/content/projects/`: project metadata and case-study content.
-- `src/pages/`: static routes for home, about, contact and projects.
+## Content
 
-## Credits
+- **Projects**: `src/content/projects/{en,de}/<slug>.ts` — copy, tags, media, links. Slugs must align with `projectIds` in `src/content/projects/index.ts`.
+- **Previews / listing**: `src/content/projects/previews/`.
+- **Tags**: variants and labels live in `src/components/tagVariants.ts` (used by `Tag.vue` and content types).
 
-Designed and implemented by Hugo Perez. The scroll-led portfolio format was inspired by [David Heckhoff's portfolio](https://david-hckh.com); no source code, models, shaders, sounds or visual assets from that project are included here.
+The target room redesign is stored at `references/room-reference.png`. The current build intentionally retains the original `room.glb` and `avatar.glb` until those assets are remodeled.
+
+## Stack (high level)
+
+- Vue 3 (`<script setup>`), SCSS with shared mixins (`src/assets/styles/`)
+- i18n helpers under `src/i18n/`
+- WebGL / GLSL under `src/three/` where applicable
+
+## Credits & Attribution
+
+This project was created and designed by David Heckhoff.
+
+If you use this project or substantial parts of its source code as a base for your own portfolio or work, attribution must be preserved.
+
+Please keep:
+
+- existing credit comments in the source code
+- this attribution section in the README
+- a visible reference to the original project/repository in derivative works
+
+Original portfolio:
+-> https://david-hckh.com
+
+Commercial reuse or redistribution of substantial portions of this project without permission is prohibited.

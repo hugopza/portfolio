@@ -1,9 +1,0 @@
----
-import styles from "./Footer.module.css";
-import { socialLinks } from "../../utils/site";
----
-<footer class={styles.footer}>
-  <div><span class={styles.prompt}>hugo@portfolio:~$</span> session complete</div>
-  <nav aria-label="Social links">{socialLinks.map((link) => <a href={link.href} target={link.href.startsWith("http") ? "_blank" : undefined} rel="noreferrer">{link.label}</a>)}</nav>
-  <p>Original implementation by Hugo Perez. Scroll experience inspired by <a href="https://david-hckh.com" target="_blank" rel="noreferrer">David Heckhoff</a>.</p>
-</footer>
