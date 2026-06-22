@@ -1,6 +1,7 @@
 import avatarModel from "./assets/models/avatar.glb";
 import labModel from "./assets/models/lab.glb";
 import roomModel from "./assets/models/room.glb";
+import roomCustomModel from "./assets/models/room-custom.glb";
 import contactModel from "./assets/models/contact.glb";
 
 import contactTexture from "./assets/textures/contact.webp";
@@ -30,6 +31,7 @@ export const sources = [
   { name: "avatar-model", type: "gltfModel", path: avatarModel },
   { name: "lab-model", type: "gltfModel", path: labModel },
   { name: "room-model", type: "gltfModel", path: roomModel },
+  { name: "room-custom-model", type: "gltfModel", path: roomCustomModel },
   { name: "contact-model", type: "gltfModel", path: contactModel },
 
   //textures

@@ -1,6 +1,6 @@
 import { resources } from "../../../utils/resources";
 import { scene } from "../../core/scene";
-import { Euler, Group, Mesh } from "three";
+import { Euler, Group, Mesh, MeshBasicMaterial } from "three";
 import { getRoomMaterial } from "../../common/materials";
 import { sceneWeights } from "../../../animations/scenes";
 import gsap from "gsap";
@@ -71,18 +71,47 @@ const initObjects = () => {
     group.add(object);
 
     if (object.name === "carpet") {
+      const carpetMaterial = new MeshBasicMaterial({ color: 0x49658e });
+      object.material = carpetMaterial;
       object.renderOrder = -10;
       object.onBeforeRender = () => {
-        mat.depthWrite = false;
+        carpetMaterial.depthWrite = false;
       };
 
       object.onAfterRender = () => {
-        mat.depthWrite = true;
+        carpetMaterial.depthWrite = true;
       };
     }
   });
 
+  initCustomRoom();
+
   scene.instance.add(group);
+};
+
+const CUSTOM_COLORS: Record<string, number> = {
+  wood: 0xb57d48,
+  cream: 0xf5ecda,
+  white: 0xfaf8f1,
+  blue: 0x49658e,
+  green: 0x5c8b36,
+  yellow: 0xf5be48,
+  dark: 0x272b34,
+};
+
+const initCustomRoom = () => {
+  const resource = resources.items["room-custom-model"];
+  if (!resource?.scene) return;
+
+  resource.scene.traverse((object: Object3D) => {
+    if (!(object instanceof Mesh)) return;
+    const colorKey = Object.keys(CUSTOM_COLORS).find((key) => object.name.includes(`-${key}-`)) ?? "wood";
+    object.material = new MeshBasicMaterial({ color: CUSTOM_COLORS[colorKey] });
+  });
+
+  resource.scene.scale.setScalar(0.72);
+  resource.scene.position.set(5, 0.25, 3);
+  group.add(resource.scene);
 };
 
 const tick = () => {

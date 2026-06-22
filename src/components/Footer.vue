@@ -56,7 +56,7 @@ const showAttribution = import.meta.env.VITE_SHOW_ATTRIBUTION !== "false";
             </Clickable>
             <Clickable renderAs="div">
               <Link
-                :href="locale === 'de' ? '/de/privacy' : '/privacy'"
+                :href="locale === 'ca' ? '/ca/privacy' : '/privacy'"
                 class="footer-link"
                 :external="true"
                 data-cursor="circle-white"
@@ -67,7 +67,7 @@ const showAttribution = import.meta.env.VITE_SHOW_ATTRIBUTION !== "false";
             </Clickable>
             <Clickable renderAs="div">
               <Link
-                :href="locale === 'de' ? '/de/legal' : '/legal'"
+                :href="locale === 'ca' ? '/ca/legal' : '/legal'"
                 class="footer-link children-unclickable"
                 :external="true"
                 data-cursor="circle-white"
@@ -111,7 +111,7 @@ const showAttribution = import.meta.env.VITE_SHOW_ATTRIBUTION !== "false";
             >
           </Clickable>
         </div>
-        <p>© {{ new Date().getFullYear() }} Hugo Perez</p>
+        <p>© {{ new Date().getFullYear() }} Hugo Pérez</p>
       </div>
     </div>
   </footer>

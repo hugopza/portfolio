@@ -1,4 +1,4 @@
-# Hugo Perez Portfolio
+# Hugo Pérez Portfolio
 
 Personal portfolio based on David Heckhoff's 2025 portfolio: project case studies, 3D scenes, shader effects, bilingual copy, sound and scroll-driven transitions.
 
@@ -19,7 +19,7 @@ Built with **Vue 3**, **TypeScript**, and **Vite**. Motion via **GSAP** and **Le
 - **Previews / listing**: `src/content/projects/previews/`.
 - **Tags**: variants and labels live in `src/components/tagVariants.ts` (used by `Tag.vue` and content types).
 
-The target room redesign is stored at `references/room-reference.png`. The current build intentionally retains the original `room.glb` and `avatar.glb` until those assets are remodeled.
+The room direction is stored at `references/room-reference.png`. The build keeps the interactive base `room.glb` and adds a generated `room-custom.glb` with the bed, bedside table, lamp, shelf, books, plant, beanbag, and blue palette. Regenerate it with `python scripts/build_custom_room.py`.
 
 ## Stack (high level)
 
