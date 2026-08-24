@@ -1,44 +1,16 @@
 import { defineConfig } from "vite";
-import vue from "@vitejs/plugin-vue";
-import glsl from "vite-plugin-glsl";
+import react from "@vitejs/plugin-react";
 
 export default defineConfig({
-  plugins: [
-    vue(),
-    glsl({
-      include: ["**/*.glsl", "**/*.vert", "**/*.frag"],
-      defaultExtension: "glsl",
-      warnDuplicatedImports: false,
-    }),
-  ],
+  plugins: [react()],
   server: {
     port: 3000,
     strictPort: true,
     host: true,
   },
-  resolve: {
-    extensions: [".js", ".jsx", ".ts", ".tsx", ".json", ".ogg", ".wav", ".glsl", ".ktx2"],
-  },
-  assetsInclude: ["**/*.svg", "**/*.gltf", "**/*.glb", "**/*.png", "**/*.jpg", "**/*.ktx2"],
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: `@use "/src/assets/styles/mixins.scss";`,
-      },
-    },
-  },
   build: {
-    outDir: "./dist",
+    outDir: "dist",
     sourcemap: false,
     emptyOutDir: true,
-    chunkSizeWarningLimit: 1000,
-    rollupOptions: {
-      output: {
-        inlineDynamicImports: false,
-        assetFileNames: "assets/[hash].[ext]",
-        entryFileNames: "chunks/[name]-[hash].js",
-        chunkFileNames: "chunks/[hash].js",
-      },
-    },
   },
 });

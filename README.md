@@ -1,45 +1,35 @@
-# Hugo Pérez Portfolio
+# Hugo Pérez — Portfolio
 
-Personal portfolio based on David Heckhoff's 2025 portfolio: project case studies, 3D scenes, shader effects, bilingual copy, sound and scroll-driven transitions.
+A lightweight single-page portfolio rebuilt in React from the approved `v1.3 balanced about` HTML design.
 
-Built with **Vue 3**, **TypeScript**, and **Vite**. Motion via **GSAP** and **Lenis**, 3D via **three.js**, audio via **Howler**. GLSL is compiled through **vite-plugin-glsl**.
+## Stack
 
-## Scripts
+- React 19 and strict TypeScript
+- Vite
+- Modern CSS with custom properties, Grid and Flexbox
+- Native `IntersectionObserver`, `requestAnimationFrame` and pointer events
+- ESLint and Prettier
 
-| Command        | Description                          |
-| -------------- | ------------------------------------ |
-| `npm run dev`   | Dev server on port **3000** (`strictPort`) |
-| `npm run build` | `vue-tsc` then production bundle to `dist/` |
-| `npm run preview` | Serve the production build locally |
-| `npm run typecheck` | Typecheck only (`vue-tsc -b`) |
+There are no animation, UI, state-management or CSS framework dependencies.
 
-## Content
+## Commands
 
-- **Projects**: `src/content/projects/{en,de}/<slug>.ts` — copy, tags, media, links. Slugs must align with `projectIds` in `src/content/projects/index.ts`.
-- **Previews / listing**: `src/content/projects/previews/`.
-- **Tags**: variants and labels live in `src/components/tagVariants.ts` (used by `Tag.vue` and content types).
+| Command                | Purpose                                     |
+| ---------------------- | ------------------------------------------- |
+| `npm install`          | Install dependencies                        |
+| `npm run dev`          | Start the local server on port 3000         |
+| `npm run build`        | Type-check and create the production bundle |
+| `npm run preview`      | Preview the production bundle               |
+| `npm run lint`         | Run ESLint                                  |
+| `npm run typecheck`    | Run strict TypeScript checks                |
+| `npm run format:check` | Verify formatting                           |
 
-The room direction is stored at `references/room-reference.png`. The build keeps the interactive base `room.glb` and adds a generated `room-custom.glb` with the bed, bedside table, lamp, shelf, books, plant, beanbag, and blue palette. Regenerate it with `python scripts/build_custom_room.py`.
+## Content and structure
 
-## Stack (high level)
+- Editable portfolio data lives in `src/data/portfolio.ts`.
+- Meaningful page blocks live in `src/sections/`.
+- Shared behavioral UI lives in `src/components/`.
+- Global design tokens and responsive rules live in `src/styles/global.css`.
+- Replace `src/assets/hugo-perez.jpg` to update the portrait while preserving its filename and dimensions.
 
-- Vue 3 (`<script setup>`), SCSS with shared mixins (`src/assets/styles/`)
-- i18n helpers under `src/i18n/`
-- WebGL / GLSL under `src/three/` where applicable
-
-## Credits & Attribution
-
-This project was created and designed by David Heckhoff.
-
-If you use this project or substantial parts of its source code as a base for your own portfolio or work, attribution must be preserved.
-
-Please keep:
-
-- existing credit comments in the source code
-- this attribution section in the README
-- a visible reference to the original project/repository in derivative works
-
-Original portfolio:
--> https://david-hckh.com
-
-Commercial reuse or redistribution of substantial portions of this project without permission is prohibited.
+Project and social URLs intentionally remain the placeholders from the approved source HTML. Update their `href` values in `src/data/portfolio.ts` when the final links are available.

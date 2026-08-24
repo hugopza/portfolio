@@ -1,6 +1,4 @@
 User-agent: *
+Allow: /
 
-Disallow: /legal
-Disallow: /ca/legal
-Disallow: /privacy
-Disallow: /ca/privacy
+Sitemap: https://hugopza.dev/sitemap.xml
