@@ -68,15 +68,15 @@ export const projects: Project[] = [
   },
   {
     index: "02",
-    name: "RRPP Agent",
-    disciplines: "AI AGENTS / INSTAGRAM / AUTOMATION",
+    name: "Talia AI",
+    disciplines: "PRODUCT / AI / AUTOMATION",
     year: "2026",
     href: "#",
   },
   {
     index: "03",
-    name: "Talia AI",
-    disciplines: "PRODUCT / AI / AUTOMATION",
+    name: "Route Generator",
+    disciplines: "APP / ROUTE GENERATION / PRODUCT",
     year: "2026",
     href: "#",
   },
@@ -149,13 +149,13 @@ export const experience: ExperienceItem[] = [
     period: "ONGOING",
     organization: "Independent Projects",
     description: "AI products, agents, automations and experiments built outside the constraints of day-to-day work.",
-    tags: "TALIA AI / RRPP AGENT / EXPERIMENTS",
+    tags: "TALIA AI / ROUTE GENERATOR / EXPERIMENTS",
   },
 ];
 
 export const builds: BuildItem[] = [
-  { name: "rrpp-agent-bridge", progress: 88, state: "Active", active: true },
-  { name: "talia-ai", progress: 76, state: "Active", active: true },
+  { name: "talia-ai", progress: 88, state: "Active", active: true },
+  { name: "route-generator", progress: 76, state: "Active", active: true },
   { name: "experiments", progress: 43, state: "Exploring", active: false },
 ];
 
