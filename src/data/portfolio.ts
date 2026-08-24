@@ -160,7 +160,7 @@ export const builds: BuildItem[] = [
 ];
 
 export const contactLinks: ContactLink[] = [
-  { label: "Email", href: "mailto:hello@example.com" },
-  { label: "LinkedIn", href: "#", external: true },
-  { label: "GitHub", href: "#", external: true },
+  { label: "Email", href: "mailto:hugoperezaraus@gmail.com" },
+  { label: "LinkedIn", href: "https://www.linkedin.com/in/hugoperezaraus/", external: true },
+  { label: "GitHub", href: "https://github.com/hugopza", external: true },
 ];
