@@ -1024,47 +1024,6 @@ img {
   will-change: transform;
 }
 
-/* Currently building */
-.build-list {
-  border-top: 1px solid var(--line);
-}
-
-.build-row {
-  display: grid;
-  grid-template-columns: 1fr 180px 120px;
-  align-items: center;
-  gap: 20px;
-  padding: 22px 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.build-row h3 {
-  margin: 0;
-  font-size: 30px;
-  letter-spacing: -0.03em;
-}
-
-.meter {
-  position: relative;
-  height: 6px;
-  overflow: hidden;
-  background: #d9d9d3;
-}
-
-.meter span {
-  position: absolute;
-  inset: 0 auto 0 0;
-  background: var(--ink);
-}
-
-.state {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 10px;
-  text-align: right;
-  text-transform: uppercase;
-}
-
 /* Contact */
 .contact {
   display: flex;
@@ -1905,14 +1864,6 @@ img {
     text-align: left;
   }
 
-  .build-row {
-    grid-template-columns: 1fr;
-  }
-
-  .state {
-    text-align: left;
-  }
-
   .contact {
     padding-top: 100px;
     padding-bottom: 22px;
@@ -2045,10 +1996,6 @@ img {
 
   .time-row .year {
     padding-top: 0;
-  }
-
-  .build-row h3 {
-    overflow-wrap: anywhere;
   }
 
   .contact-linkset {
@@ -2209,6 +2156,1066 @@ img {
   .lab-card:hover,
   .profile-photo-frame:hover .profile-photo,
   .case-decision:hover {
+    transform: none;
+  }
+}
+
+/* Personalized project case studies — structure from the supplied V2 pages, portfolio color system */
+.personal-case {
+  min-height: 100vh;
+  background: var(--bg);
+  color: var(--ink);
+}
+
+.personal-nav {
+  position: fixed;
+  z-index: 100;
+  inset: 0 0 auto;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px var(--page-gutter);
+  border-bottom: 1px solid var(--line);
+  background: rgba(241, 241, 237, 0.84);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.personal-nav a {
+  position: relative;
+}
+
+.personal-nav a::after {
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: currentColor;
+  content: "";
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.25s ease;
+}
+
+.personal-nav a:is(:hover, :focus-visible)::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+.personal-hero {
+  display: flex;
+  min-height: 92vh;
+  min-height: 92svh;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 135px var(--page-gutter) 30px;
+}
+
+.personal-hero-top {
+  display: flex;
+  justify-content: space-between;
+  gap: 30px;
+}
+
+.personal-eyebrow,
+.personal-meta,
+.personal-num {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: 0.09em;
+  line-height: 1.6;
+  text-transform: uppercase;
+}
+
+.personal-meta {
+  text-align: right;
+}
+
+.personal-hero h1 {
+  margin: 30px 0;
+  font-size: clamp(80px, 15vw, 235px);
+  line-height: 0.73;
+  letter-spacing: -0.09em;
+  text-transform: uppercase;
+}
+
+.personal-hero h1 span,
+.personal-side span {
+  display: block;
+}
+
+.personal-accent {
+  color: var(--blue);
+}
+
+.personal-hero-bottom {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 70px;
+  padding-top: 20px;
+  border-top: 1px solid var(--line);
+}
+
+.personal-statement {
+  margin: 0;
+  font-size: clamp(29px, 4vw, 62px);
+  line-height: 1;
+  letter-spacing: -0.045em;
+}
+
+.personal-side {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  line-height: 1.7;
+  text-transform: uppercase;
+}
+
+.personal-section {
+  padding: 110px var(--page-gutter);
+}
+
+.personal-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 30px;
+  margin-bottom: 52px;
+  padding-bottom: 18px;
+  border-bottom: 1px solid var(--line);
+}
+
+.personal-head h2 {
+  margin: 0;
+  font-size: clamp(50px, 8vw, 125px);
+  line-height: 0.82;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.personal-overview {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 80px;
+}
+
+.personal-lead {
+  margin: 0;
+  font-size: clamp(26px, 3.5vw, 47px);
+  line-height: 1.08;
+  letter-spacing: -0.04em;
+}
+
+.personal-facts {
+  border-top: 1px solid var(--line);
+}
+
+.personal-fact {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.personal-fact span:first-child {
+  color: var(--muted);
+}
+
+.personal-fact span:last-child {
+  text-align: right;
+}
+
+.personal-problem {
+  background: var(--dark);
+  color: var(--light);
+}
+
+.personal-problem .personal-head {
+  border-color: rgba(255, 255, 255, 0.16);
+}
+
+.personal-problem .personal-lead {
+  color: var(--light);
+}
+
+.personal-problem-copy {
+  margin: 0;
+  color: #b6bbc3;
+  font-size: 18px;
+  line-height: 1.65;
+}
+
+.personal-showcase {
+  background: var(--bg-2);
+  overflow: hidden;
+}
+
+.personal-cards {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+}
+
+.personal-card {
+  display: flex;
+  min-height: 270px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  border: 1px solid var(--line);
+  transition:
+    color 0.3s ease,
+    background 0.3s ease,
+    border-color 0.3s ease,
+    transform 0.3s ease;
+}
+
+.personal-card:hover {
+  border-color: var(--blue);
+  background: var(--blue);
+  color: #fff;
+  transform: translateY(-6px);
+}
+
+.personal-card small {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.personal-card h3 {
+  margin: 0 0 12px;
+  font-size: 34px;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.personal-card p {
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.5;
+}
+
+.personal-card:hover small,
+.personal-card:hover p {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+.personal-stack {
+  background: var(--blue);
+  color: #fff;
+}
+
+.personal-stack .personal-head {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.personal-stack .personal-num {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.personal-stack-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.personal-stack-item {
+  display: flex;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.personal-stack-item:nth-child(odd) {
+  padding-right: 28px;
+}
+
+.personal-stack-item:nth-child(even) {
+  padding-left: 28px;
+  border-left: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.personal-stack-item strong {
+  font-size: 21px;
+}
+
+.personal-stack-item span {
+  align-self: center;
+  font-family: var(--mono);
+  font-size: 10px;
+  opacity: 0.7;
+}
+
+.personal-result {
+  min-height: 70vh;
+  min-height: 70svh;
+}
+
+.personal-result-line {
+  max-width: 1200px;
+  margin: 0;
+  font-size: clamp(60px, 9vw, 145px);
+  line-height: 0.82;
+  letter-spacing: -0.07em;
+  text-transform: uppercase;
+}
+
+.personal-next {
+  display: block;
+  min-height: 55vh;
+  min-height: 55svh;
+  padding: 85px var(--page-gutter) 26px;
+  background: var(--dark);
+  color: #fff;
+  transition: background 0.25s ease;
+}
+
+.personal-next:is(:hover, :focus-visible) {
+  background: var(--blue);
+}
+
+.personal-next small {
+  color: #9da2aa;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+.personal-next h2 {
+  margin: 70px 0 0;
+  font-size: clamp(74px, 13vw, 190px);
+  line-height: 0.76;
+  letter-spacing: -0.08em;
+  overflow-wrap: anywhere;
+  text-transform: uppercase;
+}
+
+/* Talia AI */
+.personal-conversation {
+  display: grid;
+  max-width: 920px;
+  gap: 16px;
+  margin: auto;
+}
+
+.personal-bubble {
+  max-width: 68%;
+  padding: 18px 20px;
+  border-radius: 20px;
+  font-size: 18px;
+  line-height: 1.45;
+}
+
+.personal-bubble.user {
+  justify-self: end;
+  border-bottom-right-radius: 4px;
+  background: var(--ink);
+  color: #fff;
+}
+
+.personal-bubble.ai {
+  justify-self: start;
+  border: 1px solid var(--line);
+  border-bottom-left-radius: 4px;
+  background: #fff;
+}
+
+.personal-event-card {
+  width: min(560px, 85%);
+  justify-self: start;
+  padding: 20px;
+  border: 1px solid var(--line);
+  background: var(--blue);
+  color: #fff;
+}
+
+.personal-event-card small {
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.personal-event-card h3 {
+  margin: 20px 0 8px;
+  font-size: 36px;
+}
+
+.personal-event-card p {
+  margin-bottom: 0;
+}
+
+.personal-decision-row {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 10px;
+  margin-top: 45px;
+}
+
+.personal-decision-pill {
+  padding: 16px;
+  border: 1px solid var(--line);
+  background: #fff;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-align: center;
+  text-transform: uppercase;
+}
+
+.personal-decision-pill.active {
+  background: var(--ink);
+  color: #fff;
+}
+
+/* Stride */
+.personal-map-shell {
+  position: relative;
+  height: 620px;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.25);
+}
+
+.personal-map-shell::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(16, 17, 19, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(16, 17, 19, 0.05) 1px, transparent 1px);
+  background-size: 36px 36px;
+  content: "";
+}
+
+.personal-route-svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.personal-route {
+  fill: none;
+  stroke: var(--blue);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-dasharray: 1600;
+  stroke-dashoffset: 1600;
+  animation: personal-route-draw 2.8s 0.3s forwards;
+}
+
+@keyframes personal-route-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.personal-metric-strip {
+  position: absolute;
+  right: 22px;
+  bottom: 22px;
+  left: 22px;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  border: 1px solid var(--line);
+  background: rgba(241, 241, 237, 0.92);
+}
+
+.personal-metric {
+  padding: 17px;
+  border-right: 1px solid var(--line);
+}
+
+.personal-metric:last-child {
+  border-right: 0;
+}
+
+.personal-metric small {
+  display: block;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.personal-metric strong {
+  font-size: 25px;
+}
+
+.personal-route-compare {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+.personal-mini-map {
+  position: relative;
+  min-height: 280px;
+  padding: 22px;
+  border: 1px solid var(--line);
+}
+
+.personal-mini-map h3 {
+  margin: 0;
+  font-size: 34px;
+  text-transform: uppercase;
+}
+
+.personal-mini-map p {
+  max-width: 400px;
+  color: var(--muted);
+}
+
+.personal-dotline {
+  position: absolute;
+  right: 22px;
+  bottom: 30px;
+  left: 22px;
+  height: 80px;
+  border-bottom: 4px solid var(--blue);
+  border-radius: 50%;
+}
+
+.personal-dotline.angled {
+  border-radius: 0;
+  transform: rotate(-4deg);
+}
+
+/* RiseTogether */
+.personal-phones {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: 1100px;
+  gap: 35px;
+  margin: auto;
+}
+
+.personal-phone {
+  display: flex;
+  aspect-ratio: 9 / 18;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 20px;
+  border: 7px solid var(--ink);
+  border-radius: 35px;
+  background: #fff;
+  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.08);
+}
+
+.personal-phone:nth-child(2) {
+  transform: translateY(-35px);
+}
+
+.personal-phone-head {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.personal-alarm {
+  font-size: clamp(42px, 5vw, 75px);
+  font-weight: 700;
+  letter-spacing: -0.06em;
+}
+
+.personal-alarm small {
+  display: block;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 400;
+  letter-spacing: 0;
+}
+
+.personal-member {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 12px;
+  border-top: 1px solid var(--line);
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.personal-sync-line {
+  position: relative;
+  max-width: 900px;
+  height: 1px;
+  margin: 70px auto 0;
+  background: var(--blue);
+}
+
+.personal-sync-line::before,
+.personal-sync-line::after {
+  position: absolute;
+  top: -5px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--blue);
+  content: "";
+}
+
+.personal-sync-line::before {
+  left: 0;
+}
+
+.personal-sync-line::after {
+  right: 0;
+}
+
+/* Fitsee */
+.personal-job {
+  display: grid;
+  grid-template-columns: 0.8fr 1.2fr;
+  gap: 50px;
+}
+
+.personal-profile-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.personal-body-visual {
+  position: relative;
+  display: flex;
+  height: 380px;
+  align-items: center;
+  justify-content: center;
+}
+
+.personal-silhouette {
+  width: 150px;
+  height: 290px;
+  border: 4px solid var(--blue);
+  border-radius: 48% 48% 25% 25%;
+}
+
+.personal-measure {
+  position: absolute;
+  right: 10%;
+  left: 10%;
+  height: 1px;
+  background: var(--blue);
+}
+
+.personal-measure.one {
+  top: 38%;
+}
+
+.personal-measure.two {
+  top: 55%;
+}
+
+.personal-measure.three {
+  top: 70%;
+}
+
+.personal-job-board {
+  padding: 24px;
+  border: 1px solid var(--line);
+  background: var(--dark);
+  color: #fff;
+}
+
+.personal-job-board .personal-eyebrow {
+  color: #999;
+}
+
+.personal-status {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 15px;
+  padding: 19px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.personal-status span {
+  color: #999;
+  font-family: var(--mono);
+  font-size: 9px;
+}
+
+.personal-status strong {
+  font-size: 21px;
+}
+
+.personal-status.active strong {
+  color: #8296ff;
+}
+
+.personal-video {
+  display: flex;
+  aspect-ratio: 16 / 9;
+  align-items: center;
+  justify-content: center;
+  margin-top: 25px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background: linear-gradient(135deg, #1a1d23, #262a31);
+  color: #999;
+  font-family: var(--mono);
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+/* BookPilot */
+.personal-booking-intro {
+  max-width: 780px;
+  margin: 0 0 54px;
+  color: #51534f;
+  font-size: 19px;
+  line-height: 1.6;
+}
+
+.personal-booking-map {
+  display: grid;
+  grid-template-columns: 0.8fr 80px 1.35fr 80px 0.85fr;
+  align-items: center;
+  gap: 14px;
+}
+
+.personal-channels,
+.personal-rulelist {
+  display: grid;
+  gap: 12px;
+}
+
+.personal-channel {
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.personal-channel small,
+.personal-corebox small,
+.personal-sourcebox small,
+.personal-booking-master small,
+.personal-surface small {
+  display: block;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.personal-channel small {
+  margin-bottom: 8px;
+}
+
+.personal-channel strong {
+  font-size: 24px;
+  letter-spacing: -0.03em;
+  text-transform: uppercase;
+}
+
+.personal-arrowline {
+  position: relative;
+  height: 1px;
+  background: var(--ink);
+}
+
+.personal-arrowline::after {
+  position: absolute;
+  top: -4px;
+  right: 0;
+  width: 8px;
+  height: 8px;
+  border-top: 1px solid var(--ink);
+  border-right: 1px solid var(--ink);
+  content: "";
+  transform: rotate(45deg);
+}
+
+.personal-corebox {
+  position: relative;
+  display: flex;
+  min-height: 520px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 26px;
+  overflow: hidden;
+  background: var(--dark);
+  color: #fff;
+}
+
+.personal-corebox::before {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
+  background-size: 28px 28px;
+  content: "";
+}
+
+.personal-corebox > * {
+  position: relative;
+  z-index: 1;
+}
+
+.personal-corebox small {
+  color: #8f949d;
+}
+
+.personal-corebox h3 {
+  margin: 0;
+  font-size: clamp(48px, 6vw, 86px);
+  line-height: 0.82;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.personal-rulelist {
+  gap: 9px;
+}
+
+.personal-rule {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 13px;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.personal-rule span:last-child {
+  color: #aeb9ff;
+}
+
+.personal-sourcebox {
+  display: flex;
+  min-height: 170px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 22px;
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.45);
+}
+
+.personal-sourcebox strong {
+  font-size: 34px;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.personal-canonical {
+  margin-top: 52px;
+  padding-top: 30px;
+  border-top: 1px solid var(--line);
+}
+
+.personal-canonical-title {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 9px;
+  text-transform: uppercase;
+}
+
+.personal-booking-row {
+  display: grid;
+  grid-template-columns: 1.1fr repeat(4, 1fr);
+  gap: 10px;
+}
+
+.personal-booking-master,
+.personal-surface {
+  display: flex;
+  min-height: 150px;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 18px;
+  border: 1px solid var(--line);
+  background: #fff;
+}
+
+.personal-booking-master {
+  background: var(--blue);
+  color: #fff;
+}
+
+.personal-booking-master small {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.personal-booking-master strong {
+  font-size: 28px;
+  line-height: 1;
+  letter-spacing: -0.04em;
+}
+
+.personal-surface strong {
+  font-size: 17px;
+  text-transform: uppercase;
+}
+
+.personal-surface p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.35;
+}
+
+@media (max-height: 760px) and (min-width: 901px) {
+  .personal-hero {
+    padding-top: 76px;
+    padding-bottom: 18px;
+  }
+
+  .personal-hero h1 {
+    margin-top: 16px;
+    margin-bottom: 16px;
+  }
+
+  .personal-hero-bottom {
+    padding-top: 16px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .personal-hero-bottom,
+  .personal-overview {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-cards,
+  .personal-stack-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-stack-item:nth-child(n) {
+    padding: 18px 0;
+    border-left: 0;
+  }
+
+  .personal-booking-map {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-arrowline {
+    width: 1px;
+    height: 32px;
+    justify-self: center;
+  }
+
+  .personal-arrowline::after {
+    top: auto;
+    right: -4px;
+    bottom: 0;
+    transform: rotate(135deg);
+  }
+
+  .personal-booking-row {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .personal-nav {
+    padding: 17px 18px;
+  }
+
+  .personal-nav span {
+    display: none;
+  }
+
+  .personal-hero {
+    min-height: auto;
+    padding: 110px 18px 26px;
+  }
+
+  .personal-hero-top {
+    display: block;
+  }
+
+  .personal-meta {
+    margin-top: 12px;
+    text-align: left;
+  }
+
+  .personal-hero h1 {
+    font-size: clamp(62px, 21vw, 104px);
+  }
+
+  .personal-hero-bottom {
+    gap: 26px;
+  }
+
+  .personal-section {
+    padding: 85px 18px;
+  }
+
+  .personal-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 15px;
+  }
+
+  .personal-next {
+    padding: 70px 18px 22px;
+  }
+
+  .personal-bubble {
+    max-width: 90%;
+  }
+
+  .personal-decision-row,
+  .personal-metric-strip {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .personal-map-shell {
+    height: 470px;
+  }
+
+  .personal-route-compare {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-phones {
+    grid-template-columns: 1fr;
+    max-width: 300px;
+  }
+
+  .personal-phone:nth-child(2) {
+    transform: none;
+  }
+
+  .personal-sync-line {
+    display: none;
+  }
+
+  .personal-job {
+    grid-template-columns: 1fr;
+  }
+
+  .personal-booking-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .personal-route {
+    stroke-dashoffset: 0;
+  }
+
+  .personal-card:hover,
+  .personal-phone:nth-child(2) {
     transform: none;
   }
 }

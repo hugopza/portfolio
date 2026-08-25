@@ -3,12 +3,13 @@ import { CustomCursor } from "./components/CustomCursor";
 import { Navigation } from "./components/Navigation";
 import { useRevealElements } from "./hooks/useRevealElements";
 import { getProjectCaseStudy } from "./data/projectCaseStudies";
+import { getPersonalizedCaseStudy } from "./data/personalizedCaseStudies";
 import { ProjectCaseStudy } from "./pages/ProjectCaseStudy";
+import { PersonalizedProjectCaseStudy } from "./pages/PersonalizedProjectCaseStudy";
 import { About } from "./sections/About";
 import { Capabilities } from "./sections/Capabilities";
 import { Contact } from "./sections/Contact";
 import { CurrentFocus } from "./sections/CurrentFocus";
-import { CurrentlyBuilding } from "./sections/CurrentlyBuilding";
 import { Experience } from "./sections/Experience";
 import { Hero } from "./sections/Hero";
 import { Lab } from "./sections/Lab";
@@ -18,7 +19,17 @@ import { StatusTicker } from "./sections/StatusTicker";
 
 export default function App() {
   useRevealElements();
+  const personalizedProject = getPersonalizedCaseStudy(window.location.pathname);
   const project = getProjectCaseStudy(window.location.pathname);
+
+  if (personalizedProject) {
+    return (
+      <>
+        <CustomCursor />
+        <PersonalizedProjectCaseStudy project={personalizedProject} />
+      </>
+    );
+  }
 
   if (project) {
     return (
@@ -47,7 +58,6 @@ export default function App() {
         <CurrentFocus />
         <Experience />
         <Playground />
-        <CurrentlyBuilding />
       </main>
       <Contact />
     </>

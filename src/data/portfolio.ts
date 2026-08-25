@@ -31,13 +31,6 @@ export interface ExperienceItem {
   tags: string;
 }
 
-export interface BuildItem {
-  name: string;
-  progress: number;
-  state: string;
-  active: boolean;
-}
-
 export interface ContactLink {
   label: string;
   href: string;
@@ -172,12 +165,6 @@ export const experience: ExperienceItem[] = [
     description: "AI products, agents, automations and experiments built outside the constraints of day-to-day work.",
     tags: "TALIA AI / STRIDE / EXPERIMENTS",
   },
-];
-
-export const builds: BuildItem[] = [
-  { name: "talia-ai", progress: 88, state: "Active", active: true },
-  { name: "stride", progress: 76, state: "Active", active: true },
-  { name: "experiments", progress: 43, state: "Exploring", active: false },
 ];
 
 export const contactLinks: ContactLink[] = [
