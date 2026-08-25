@@ -22,7 +22,6 @@ export interface PersonalizedCaseStudy {
   title: [string, string];
   meta: string;
   statement: string;
-  technologies: string[];
   overview: string;
   facts: PersonalizedFact[];
   showcaseTitle: [string, string];
@@ -41,7 +40,6 @@ export const personalizedCaseStudies: PersonalizedCaseStudy[] = [
     title: ["TALIA", "AI"],
     meta: "AI / PRODUCT / 2026",
     statement: "An AI-first assistant for nightlife discovery, lists and promotions.",
-    technologies: ["Conversational product", "Instagram-first", "Automation"],
     overview: "Talia explores what happens when the front door to a service is not a form or app menu, but a message.",
     facts: [
       { label: "Channel", value: "Messaging" },
@@ -92,7 +90,6 @@ export const personalizedCaseStudies: PersonalizedCaseStudy[] = [
     title: ["BOOK", "PILOT"],
     meta: "BOOKING / SAAS / CHANNELS / 2026",
     statement: "One booking engine for every customer channel.",
-    technologies: ["Product / Software Engineer", "Multi-tenant SaaS", "Web / WhatsApp / Voice"],
     overview:
       "BookPilot is a multi-tenant booking platform that unifies web, WhatsApp and voice interactions around one scheduling engine and one canonical source of truth.",
     facts: [
@@ -147,7 +144,6 @@ export const personalizedCaseStudies: PersonalizedCaseStudy[] = [
     title: ["STRIDE", "ROUTES"],
     meta: "MOBILE / ROUTING / 2026",
     statement: "Smart route generation for walking and road cycling.",
-    technologies: ["Expo / React Native", "OpenRouteService", "Supabase / GPX"],
     overview: "Stride turns a few route preferences into a real route you can preview, save and export.",
     facts: [
       { label: "Activities", value: "Foot / Road cycling" },
@@ -195,7 +191,6 @@ export const personalizedCaseStudies: PersonalizedCaseStudy[] = [
     title: ["RISE", "TOGETHER"],
     meta: "MOBILE / SHARED ALARMS",
     statement: "An alarm that belongs to the group, not to one phone.",
-    technologies: ["Mobile app", "Shared state", "Group coordination"],
     overview:
       "RiseTogether tackles a tiny but real coordination problem: everyone in a group should wake up at the same time without configuring separate alarms independently.",
     facts: [
@@ -246,7 +241,6 @@ export const personalizedCaseStudies: PersonalizedCaseStudy[] = [
     title: ["FIT", "SEE"],
     meta: "BACKEND / VIRTUAL TRY-ON",
     statement: "Backend infrastructure for a virtual try-on experience that cannot happen inside one HTTP request.",
-    technologies: ["FastAPI", "Redis + RQ", "PostgreSQL"],
     overview:
       "Fitsee is a Phase 1 backend MVP for a virtual try-on workflow: body measurements, product selection, asynchronous render jobs and a video result.",
     facts: [

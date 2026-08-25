@@ -294,11 +294,6 @@ export function PersonalizedProjectCaseStudy({ project }: PersonalizedProjectCas
           </h1>
           <div className="personal-hero-bottom">
             <p className="personal-statement">{project.statement}</p>
-            <div className="personal-side">
-              {project.technologies.map((item) => (
-                <span key={item}>{item}</span>
-              ))}
-            </div>
           </div>
         </header>
 
