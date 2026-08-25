@@ -77,7 +77,14 @@ export function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
             <span className="case-blue">{project.title[1]}</span>
           </h1>
 
-          <div className="case-hero-visual" aria-hidden="true" />
+          <img
+            className="case-hero-visual"
+            src={`/project-visuals/${project.slug}.svg`}
+            alt=""
+            width="800"
+            height="800"
+            aria-hidden="true"
+          />
 
           <div className="case-hero-footer">
             <p className="case-hero-statement">{project.statement}</p>

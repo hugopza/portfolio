@@ -249,9 +249,10 @@ function ProjectShowcase({ variant }: { variant: PersonalizedCaseStudyVariant })
 }
 
 export function PersonalizedProjectCaseStudy({ project }: PersonalizedProjectCaseStudyProps) {
+  const routeSlug = project.slug === "talia" ? "talia-ai" : project.slug;
+
   useEffect(() => {
     const title = `${project.title.join(" ")} — Hugo Pérez`;
-    const routeSlug = project.slug === "talia" ? "talia-ai" : project.slug;
     const url = `https://hugopza.dev/projects/${routeSlug}`;
     document.title = title;
 
@@ -268,7 +269,7 @@ export function PersonalizedProjectCaseStudy({ project }: PersonalizedProjectCas
       document.querySelector<HTMLMetaElement>(selector)?.setAttribute("content", content);
     });
     document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute("href", url);
-  }, [project]);
+  }, [project, routeSlug]);
 
   const nextTitle = project.next.title.split(" ");
 
@@ -292,6 +293,14 @@ export function PersonalizedProjectCaseStudy({ project }: PersonalizedProjectCas
             <span>{project.title[0]}</span>
             <span className="personal-accent">{project.title[1]}</span>
           </h1>
+          <img
+            className="personal-hero-visual"
+            src={`/project-visuals/${routeSlug}.svg`}
+            alt=""
+            width="800"
+            height="800"
+            aria-hidden="true"
+          />
           <div className="personal-hero-bottom">
             <p className="personal-statement">{project.statement}</p>
           </div>

@@ -1250,30 +1250,9 @@ img {
   top: 15vh;
   right: -14vw;
   width: min(56vw, 850px);
-  aspect-ratio: 1;
-  border: 1px solid rgba(49, 87, 255, 0.25);
-  border-radius: 50%;
-  background:
-    radial-gradient(circle at 48% 48%, rgba(49, 87, 255, 0.84), transparent 15%),
-    radial-gradient(circle at 35% 28%, rgba(255, 255, 255, 0.96), transparent 14%),
-    radial-gradient(circle at 62% 70%, rgba(17, 19, 24, 0.72), transparent 24%),
-    conic-gradient(from 90deg, #f1f1ed, #3157ff, #20242d, #d7d7d3, #f1f1ed);
-  opacity: 0.36;
-  filter: blur(0.2px);
+  height: auto;
+  object-fit: contain;
   pointer-events: none;
-}
-
-.case-hero-visual::before,
-.case-hero-visual::after {
-  position: absolute;
-  inset: 7%;
-  border: 1px solid rgba(49, 87, 255, 0.18);
-  border-radius: 50%;
-  content: "";
-}
-
-.case-hero-visual::after {
-  inset: 17%;
 }
 
 .case-section {
@@ -2207,15 +2186,19 @@ img {
 }
 
 .personal-hero {
+  position: relative;
   display: flex;
   min-height: 92vh;
   min-height: 92svh;
   flex-direction: column;
   justify-content: space-between;
   padding: 135px var(--page-gutter) 30px;
+  overflow: hidden;
 }
 
 .personal-hero-top {
+  position: relative;
+  z-index: 2;
   display: flex;
   justify-content: space-between;
   gap: 30px;
@@ -2237,6 +2220,8 @@ img {
 }
 
 .personal-hero h1 {
+  position: relative;
+  z-index: 2;
   margin: 30px 0;
   font-size: clamp(80px, 15vw, 235px);
   line-height: 0.73;
@@ -2248,11 +2233,23 @@ img {
   display: block;
 }
 
+.personal-hero-visual {
+  position: absolute;
+  top: 10vh;
+  right: -10vw;
+  width: min(54vw, 820px);
+  height: auto;
+  object-fit: contain;
+  pointer-events: none;
+}
+
 .personal-accent {
   color: var(--blue);
 }
 
 .personal-hero-bottom {
+  position: relative;
+  z-index: 2;
   display: grid;
   grid-template-columns: 1fr;
   gap: 70px;
@@ -3079,6 +3076,12 @@ img {
 }
 
 @media (max-width: 1000px) {
+  .personal-hero-visual {
+    top: 18vh;
+    right: -18vw;
+    width: 72vw;
+  }
+
   .personal-hero-bottom,
   .personal-overview {
     grid-template-columns: 1fr;
@@ -3141,6 +3144,15 @@ img {
 
   .personal-hero h1 {
     font-size: clamp(62px, 21vw, 104px);
+  }
+
+  .personal-hero-visual {
+    position: relative;
+    top: auto;
+    right: auto;
+    order: 3;
+    width: min(92vw, 560px);
+    margin: 24px auto 4px;
   }
 
   .personal-hero-bottom {
