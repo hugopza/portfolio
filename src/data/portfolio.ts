@@ -54,17 +54,17 @@ export const tickerItems = [
 export const projects: Project[] = [
   {
     index: "01",
-    name: "GISCE MCP",
-    disciplines: "AI / ERP / SOFTWARE ARCHITECTURE",
-    year: "2026",
-    href: "/projects/gisce-mcp",
-  },
-  {
-    index: "02",
     name: "Talia AI",
     disciplines: "PRODUCT / AI / AUTOMATION",
     year: "2026",
     href: "/projects/talia-ai",
+  },
+  {
+    index: "02",
+    name: "GISCE MCP",
+    disciplines: "AI / ERP / SOFTWARE ARCHITECTURE",
+    year: "2026",
+    href: "/projects/gisce-mcp",
   },
   {
     index: "03",
@@ -75,10 +75,10 @@ export const projects: Project[] = [
   },
   {
     index: "04",
-    name: "BookPilot",
-    disciplines: "SAAS / BOOKING / OMNICHANNEL",
+    name: "Fitsee",
+    disciplines: "AI / E-COMMERCE / VIRTUAL TRY-ON",
     year: "2026",
-    href: "/projects/bookpilot",
+    href: "/projects/fitsee",
   },
   {
     index: "05",
@@ -89,10 +89,10 @@ export const projects: Project[] = [
   },
   {
     index: "06",
-    name: "Fitsee",
-    disciplines: "AI / E-COMMERCE / VIRTUAL TRY-ON",
+    name: "BookPilot",
+    disciplines: "SAAS / BOOKING / OMNICHANNEL",
     year: "2026",
-    href: "/projects/fitsee",
+    href: "/projects/bookpilot",
   },
 ];
 
@@ -131,10 +131,9 @@ export const profileItems: ProfileItem[] = [
 ];
 
 export const offlineInterests: IndexedItem[] = [
-  { index: "01", name: "DIVING" },
-  { index: "02", name: "TRAVELLING" },
-  { index: "03", name: "EXPERIMENTING" },
-  { index: "04", name: "STARTING SIDE PROJECTS" },
+  { index: "01", name: " FRIENDS & FAMILY" },
+  { index: "02", name: "SPORTS" },
+  { index: "03", name: "TRAVEL" },
 ];
 
 export const focusItems: FocusItem[] = [
