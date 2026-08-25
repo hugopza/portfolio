@@ -69,14 +69,6 @@ export function Hero() {
             systems.
           </h1>
         </div>
-        <aside className="hero-side" aria-label="Profile summary">
-          <div className="mini">PROFILE / 001</div>
-          <p>
-            I’m a software engineer from Girona building at the intersection of AI, product and software systems. I like
-            turning technical ideas into things people can actually use.
-          </p>
-          <div className="mini">SELECTED WORK ↓</div>
-        </aside>
       </div>
 
       <div className="hero-footer">
