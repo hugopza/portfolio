@@ -2,6 +2,8 @@ import { BootScreen } from "./components/BootScreen";
 import { CustomCursor } from "./components/CustomCursor";
 import { Navigation } from "./components/Navigation";
 import { useRevealElements } from "./hooks/useRevealElements";
+import { getProjectCaseStudy } from "./data/projectCaseStudies";
+import { ProjectCaseStudy } from "./pages/ProjectCaseStudy";
 import { About } from "./sections/About";
 import { Capabilities } from "./sections/Capabilities";
 import { Contact } from "./sections/Contact";
@@ -16,6 +18,16 @@ import { StatusTicker } from "./sections/StatusTicker";
 
 export default function App() {
   useRevealElements();
+  const project = getProjectCaseStudy(window.location.pathname);
+
+  if (project) {
+    return (
+      <>
+        <CustomCursor />
+        <ProjectCaseStudy project={project} />
+      </>
+    );
+  }
 
   return (
     <>

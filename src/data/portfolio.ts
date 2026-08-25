@@ -54,7 +54,7 @@ export const navigation = [
 export const tickerItems = [
   "● AVAILABLE FOR OPPORTUNITIES",
   "BASED IN GIRONA",
-  "03 SELECTED PROJECTS",
+  "06 SELECTED PROJECTS",
   "AI / SOFTWARE / PRODUCT",
 ] as const;
 
@@ -64,21 +64,42 @@ export const projects: Project[] = [
     name: "GISCE MCP",
     disciplines: "AI / ERP / SOFTWARE ARCHITECTURE",
     year: "2026",
-    href: "#",
+    href: "/projects/gisce-mcp",
   },
   {
     index: "02",
     name: "Talia AI",
     disciplines: "PRODUCT / AI / AUTOMATION",
     year: "2026",
-    href: "#",
+    href: "/projects/talia-ai",
   },
   {
     index: "03",
     name: "Stride",
     disciplines: "EXPO / REACT NATIVE / ROUTE GENERATION",
     year: "2026",
-    href: "#",
+    href: "/projects/stride",
+  },
+  {
+    index: "04",
+    name: "BookPilot",
+    disciplines: "SAAS / BOOKING / OMNICHANNEL",
+    year: "2026",
+    href: "/projects/bookpilot",
+  },
+  {
+    index: "05",
+    name: "RiseTogether",
+    disciplines: "EXPO / REACT NATIVE / SOCIAL ALARMS",
+    year: "2026",
+    href: "/projects/risetogether",
+  },
+  {
+    index: "06",
+    name: "Fitsee",
+    disciplines: "AI / E-COMMERCE / VIRTUAL TRY-ON",
+    year: "2026",
+    href: "/projects/fitsee",
   },
 ];
 
