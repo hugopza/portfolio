@@ -25,7 +25,7 @@ export function Contact() {
           ))}
         </div>
         <div className="system">
-          HUGO.PZA / PORTFOLIO
+          HUGO PÉREZ / PORTFOLIO
           <br />
           VERSION 1.3.0 · SYSTEM ONLINE ●
         </div>
