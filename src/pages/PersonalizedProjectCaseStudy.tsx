@@ -1,5 +1,6 @@
 import { useEffect } from "react";
 import type { PersonalizedCaseStudy, PersonalizedCaseStudyVariant } from "../data/personalizedCaseStudies";
+import { getProjectNavigationTarget } from "../data/projectNavigation";
 
 interface PersonalizedProjectCaseStudyProps {
   project: PersonalizedCaseStudy;
@@ -250,6 +251,7 @@ function ProjectShowcase({ variant }: { variant: PersonalizedCaseStudyVariant })
 
 export function PersonalizedProjectCaseStudy({ project }: PersonalizedProjectCaseStudyProps) {
   const routeSlug = project.slug === "talia" ? "talia-ai" : project.slug;
+  const nextProject = getProjectNavigationTarget(`/projects/${routeSlug}`);
 
   useEffect(() => {
     const title = `${project.title.join(" ")} — Hugo Pérez`;
@@ -271,7 +273,7 @@ export function PersonalizedProjectCaseStudy({ project }: PersonalizedProjectCas
     document.querySelector<HTMLLinkElement>('link[rel="canonical"]')?.setAttribute("href", url);
   }, [project, routeSlug]);
 
-  const nextTitle = project.next.title.split(" ");
+  const nextTitle = nextProject.title.split(" ");
 
   return (
     <div className={`personal-case personal-case-${project.slug}`}>
@@ -374,8 +376,11 @@ export function PersonalizedProjectCaseStudy({ project }: PersonalizedProjectCas
           </p>
         </section>
 
-        <a className="personal-next hoverable" href={`/projects/${project.next.slug}`}>
-          <small>Next Project</small>
+        <a
+          className="personal-next hoverable"
+          href={nextProject.href}
+          data-next-project={nextProject.isReturn ? "projects" : nextProject.title.toLowerCase().replaceAll(" ", "")}>
+          <small>{nextProject.isReturn ? "Project Index" : "Next Project"}</small>
           <h2>
             {nextTitle.map((word, index) => (
               <span key={`${word}-${index}`}>

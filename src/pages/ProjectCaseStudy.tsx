@@ -1,5 +1,6 @@
 import { useEffect } from "react";
-import { getNextProject, type ProjectCaseStudy as ProjectCaseStudyData } from "../data/projectCaseStudies";
+import type { ProjectCaseStudy as ProjectCaseStudyData } from "../data/projectCaseStudies";
+import { getProjectNavigationTarget } from "../data/projectNavigation";
 
 interface ProjectCaseStudyProps {
   project: ProjectCaseStudyData;
@@ -21,7 +22,7 @@ function CaseSectionHeader({ title, meta }: { title: string; meta: string }) {
 }
 
 export function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
-  const nextProject = getNextProject(project);
+  const nextProject = getProjectNavigationTarget(`/projects/${project.slug}`);
 
   useEffect(() => {
     const title = `${project.title.join(" ")} — Hugo Pérez`;
@@ -221,17 +222,16 @@ export function ProjectCaseStudy({ project }: ProjectCaseStudyProps) {
           </div>
         </section>
 
-        <a className="case-next hoverable" href={`/projects/${nextProject.slug}`} data-next-project={nextProject.slug}>
+        <a
+          className="case-next hoverable"
+          href={nextProject.href}
+          data-next-project={nextProject.isReturn ? "projects" : nextProject.title.toLowerCase().replaceAll(" ", "")}>
           <div className="case-next-top">
-            <span>Next Project</span>
-            <span>{nextProject.index} / Selected Work</span>
+            <span>{nextProject.isReturn ? "Project Index" : "Next Project"}</span>
+            <span>{nextProject.isReturn ? nextProject.index : `${nextProject.index} / Selected Work`}</span>
           </div>
 
-          <h2 className="case-next-title">
-            {nextProject.title[0]}
-            <br />
-            {nextProject.title[1]}
-          </h2>
+          <h2 className="case-next-title">{nextProject.title}</h2>
 
           <div className="case-next-bottom">
             <span>{nextProject.disciplines}</span>

@@ -983,6 +983,7 @@ img {
   justify-content: center;
   overflow: hidden;
   text-align: center;
+  touch-action: none;
 }
 
 .playground-content {
@@ -1016,11 +1017,13 @@ img {
 
 .dot {
   position: absolute;
+  top: 0;
+  left: 0;
   width: 7px;
   height: 7px;
   border-radius: 50%;
   background: #5f6fff;
-  transition: transform 0.2s ease;
+  transition: none;
   will-change: transform;
 }
 
@@ -3119,6 +3122,10 @@ img {
   }
 }
 
+.playground-touch-copy {
+  display: none;
+}
+
 @media (max-width: 700px) {
   .personal-nav {
     padding: 17px 18px;
@@ -3147,12 +3154,11 @@ img {
   }
 
   .personal-hero-visual {
-    position: relative;
-    top: auto;
-    right: auto;
-    order: 3;
-    width: min(92vw, 560px);
-    margin: 24px auto 4px;
+    position: absolute;
+    top: 126px;
+    right: -30vw;
+    width: 86vw;
+    margin: 0;
   }
 
   .personal-hero-bottom {
@@ -3209,6 +3215,112 @@ img {
 
   .personal-booking-row {
     grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .nav {
+    top: auto;
+    bottom: 0;
+    justify-content: center;
+    padding: 14px 18px calc(14px + env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(17, 19, 24, 0.94);
+    color: #fff;
+    mix-blend-mode: normal;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+
+  .nav .brand,
+  .nav > div:last-child {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    gap: 10px;
+    font-size: 10px;
+  }
+
+  .case-nav,
+  .personal-nav {
+    inset: auto 0 0;
+    padding: 15px 18px calc(15px + env(safe-area-inset-bottom));
+    border-top: 1px solid var(--line);
+    border-bottom: 0;
+    background: rgba(241, 241, 237, 0.94);
+  }
+
+  .case-hero,
+  .personal-hero {
+    padding-bottom: 84px;
+  }
+
+  .case-hero-visual {
+    position: absolute;
+    top: 150px;
+    right: -32vw;
+    order: initial;
+    width: 78vw;
+    margin: 0;
+    opacity: 1;
+  }
+
+  .case-next,
+  .personal-next,
+  .contact {
+    padding-bottom: calc(82px + env(safe-area-inset-bottom));
+  }
+
+  .lab-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .lab-card,
+  .lab-card:nth-child(n) {
+    min-height: 132px;
+    padding: 14px;
+  }
+
+  .lab-card h3 {
+    overflow-wrap: anywhere;
+    font-size: clamp(20px, 6vw, 30px);
+    line-height: 0.94;
+  }
+
+  .cap-title {
+    max-width: 100%;
+    font-size: clamp(38px, 12vw, 56px);
+    overflow-wrap: anywhere;
+  }
+
+  .contact {
+    min-height: 70vh;
+  }
+
+  .contact h2 {
+    font-size: clamp(54px, 16vw, 72px);
+  }
+
+  .playground {
+    min-height: 54vh;
+    min-height: 54svh;
+  }
+
+  .playground h2 {
+    font-size: clamp(48px, 15vw, 68px);
+  }
+
+  .playground-pointer-copy {
+    display: none;
+  }
+
+  .playground-touch-copy {
+    display: inline;
   }
 }
 

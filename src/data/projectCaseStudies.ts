@@ -559,8 +559,3 @@ export function getProjectCaseStudy(pathname: string): ProjectCaseStudy | undefi
   const normalizedPath = pathname.replace(/\/+$/, "");
   return projectCaseStudies.find((project) => normalizedPath === `/projects/${project.slug}`);
 }
-
-export function getNextProject(project: ProjectCaseStudy): ProjectCaseStudy {
-  const currentIndex = projectCaseStudies.findIndex((item) => item.slug === project.slug);
-  return projectCaseStudies[(currentIndex + 1) % projectCaseStudies.length];
-}
