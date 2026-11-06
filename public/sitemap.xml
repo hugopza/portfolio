@@ -4,21 +4,48 @@
     <loc>https://hugopza.dev/</loc>
   </url>
   <url>
-    <loc>https://hugopza.dev/projects/gisce-mcp</loc>
+    <loc>https://hugopza.dev/projects</loc>
   </url>
   <url>
-    <loc>https://hugopza.dev/projects/talia-ai</loc>
+    <loc>https://hugopza.dev/about</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/stack</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/contact</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/weekly</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/weekly/week-0-hello-world</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/projects/fitsee</loc>
   </url>
   <url>
     <loc>https://hugopza.dev/projects/stride</loc>
   </url>
   <url>
-    <loc>https://hugopza.dev/projects/bookpilot</loc>
+    <loc>https://hugopza.dev/projects/talia-ai</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/projects/encaixa-cv</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/projects/thirsty</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/projects/emotira</loc>
   </url>
   <url>
     <loc>https://hugopza.dev/projects/risetogether</loc>
   </url>
   <url>
-    <loc>https://hugopza.dev/projects/fitsee</loc>
+    <loc>https://hugopza.dev/projects/bookpilot</loc>
+  </url>
+  <url>
+    <loc>https://hugopza.dev/projects/gisce-mcp</loc>
   </url>
 </urlset>
