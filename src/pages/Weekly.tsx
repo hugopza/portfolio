@@ -1,4 +1,5 @@
 import { formatPostDate, publishedPosts, type WeeklyPost } from "../data/weekly";
+import { TextArrow } from "../components/TextArrow";
 
 export function Weekly({ post }: { post?: WeeklyPost }) {
   if (post) {
@@ -26,7 +27,8 @@ export function Weekly({ post }: { post?: WeeklyPost }) {
                   {section.links.map((link, i) => (
                     <li key={i}>
                       <a href={link.href} target="_blank" rel="noopener noreferrer">
-                        {link.label} <span aria-hidden="true">↗</span>
+                        {link.label}
+                        <TextArrow />
                       </a>
                     </li>
                   ))}
@@ -53,7 +55,7 @@ export function Weekly({ post }: { post?: WeeklyPost }) {
                 <a className="weekly-entry" href={`/weekly/${entry.slug}`}>
                   <span className="weekly-entry-title">{entry.title}</span>
                   <time dateTime={entry.date}>{formatPostDate(entry.date)}</time>
-                  <span aria-hidden="true">↗</span>
+                  <TextArrow />
                 </a>
               </li>
             ))}

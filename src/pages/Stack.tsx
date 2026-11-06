@@ -1,22 +1,17 @@
 import { stackSections, type StackItem } from "../data/stack";
+import { TextArrow } from "../components/TextArrow";
 
 function Item({ item }: { item: StackItem }) {
   const contents = (
     <>
       <span className="stack-name">
         {item.name}
-        {item.href && (
-          <span className="stack-inline-arrow" aria-hidden="true">
-            ↗
-          </span>
-        )}
+        {item.href && <TextArrow className="stack-inline-arrow" />}
       </span>
       <span className="stack-type">{item.type}</span>
       <span className="stack-detail">
         <span className="stack-description">{item.description}</span>
-        <span className="stack-arrow" aria-hidden="true">
-          {item.href ? "↗" : ""}
-        </span>
+        {item.href && <TextArrow className="stack-arrow" />}
       </span>
     </>
   );

@@ -321,9 +321,6 @@ figcaption {
   font-size: 13px;
   justify-self: end;
 }
-.about-link-arrow {
-  font-size: 13px;
-}
 .tool-list {
   max-width: 610px;
 }
@@ -382,10 +379,6 @@ figcaption {
 .contact-value > span:first-child {
   min-width: 0;
   overflow-wrap: anywhere;
-}
-.external-mark {
-  font-size: 13px;
-  justify-self: end;
 }
 .is-project .interior {
   padding-top: 54px;
@@ -500,9 +493,6 @@ figcaption {
 .project-fact-link > span:first-child {
   min-width: 0;
   overflow-wrap: anywhere;
-}
-.project-fact-link > span:last-child {
-  flex-shrink: 0;
 }
 .text-link {
   display: inline-block;
@@ -651,16 +641,21 @@ figcaption {
 .stack-type {
   color: var(--muted);
 }
-.stack-arrow {
-  flex-shrink: 0;
-  font-size: 12px;
-}
 .stack-detail {
   grid-column: span 3;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: 12px;
+}
+.text-arrow {
+  display: inline-block;
+  flex-shrink: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 1;
 }
 .stack-inline-arrow {
   display: none;
@@ -769,9 +764,8 @@ figcaption {
     display: none;
   }
   .stack-inline-arrow {
-    display: inline;
+    display: inline-block;
     margin-left: 6px;
-    font-weight: 400;
   }
   .about-layout {
     display: flex;

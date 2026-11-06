@@ -5,6 +5,7 @@ import { Stack } from "./pages/Stack";
 import { Weekly } from "./pages/Weekly";
 import { publishedPosts } from "./data/weekly";
 import { SiteHeader } from "./components/SiteHeader";
+import { TextArrow } from "./components/TextArrow";
 
 const navigation = [
   { label: "Projects", href: "/projects" },
@@ -104,9 +105,7 @@ function About() {
             aria-label="Hugo Pérez on GitHub (opens in a new tab)">
             <span className="about-link-name">GitHub</span>
             <span className="about-link-handle">@hugopza</span>
-            <span className="about-link-arrow" aria-hidden="true">
-              ↗
-            </span>
+            <TextArrow />
           </a>
         </section>
       </div>
@@ -160,9 +159,7 @@ function Contact() {
                   <span>{link.label}</span>
                   <span className="contact-value">
                     <span>{link.label === "Email" ? "hugoperezaraus@gmail.com" : "Hugo Pérez"}</span>
-                    <span className="external-mark" aria-hidden="true">
-                      ↗
-                    </span>
+                    <TextArrow />
                   </span>
                 </a>
               </li>
@@ -251,7 +248,7 @@ export default function App() {
                           rel="noopener noreferrer"
                           aria-label={`View ${project.name} on GitHub (opens in a new tab)`}>
                           <span>{project.repository.replace("https://github.com/", "")}</span>
-                          <span aria-hidden="true">↗</span>
+                          <TextArrow />
                         </a>
                       </dd>
                     </div>
@@ -267,7 +264,7 @@ export default function App() {
                           rel="noopener noreferrer"
                           aria-label={`Visit ${project.name} (opens in a new tab)`}>
                           <span>{project.website.replace("https://", "").replace(/\/$/, "")}</span>
-                          <span aria-hidden="true">↗</span>
+                          <TextArrow />
                         </a>
                       </dd>
                     </div>
